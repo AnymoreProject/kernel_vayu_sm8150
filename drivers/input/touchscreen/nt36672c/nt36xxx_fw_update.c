@@ -100,7 +100,7 @@ static int32_t nvt_download_init(void)
 
 	if (fwbuf == NULL) {
 		fwbuf = (uint8_t *)kzalloc((NVT_TRANSFER_LEN + 1 + DUMMY_BYTES), GFP_KERNEL);
-		if(fwbuf == NULL) {
+		if (fwbuf == NULL) {
 			NVT_ERR("kzalloc for fwbuf failed!\n");
 			return -ENOMEM;
 		}
