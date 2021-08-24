@@ -378,12 +378,12 @@ static int lvl_multiplicator_map_1[] = {5,5,6,8,9,1,1    ,1,1};
 static int lvl_divider_map_1[] = {10,10,10,10,10,1,1    ,1,1};
 
 // for boost == 2 -- boost divide on the low spectrum, dampen the lower freq values, unneeded to boost the low freq spectrum so much at start
-static int lvl_multiplicator_map_2[] = {6,7,8,1,1,1,1    ,1,1};
-static int lvl_divider_map_2[] = {10,10,10,1,1,1,1    ,1,1};
+static int lvl_multiplicator_map_2[] = {9,1,1,1,1,10,8    ,1,1};
+static int lvl_divider_map_2[] = {10,1,1,1,1,14,12    ,1,1};
 
-// for boost == 3 -- boost divide on the low spectrum, dampen the lower freq values, unneeded to boost the low freq spectrum so much at start
-static int lvl_multiplicator_map_3[] = {9,1,1,1,1,10,8    ,1,1};
-static int lvl_divider_map_3[] = {10,1,1,1,1,14,12    ,1,1};
+// for boost == 3 -- idk, but i got more performance with this :p
+static int lvl_multiplicator_map_3[] = {10,1,1,1,1,11,9    ,1,1};
+static int lvl_divider_map_3[] = {10,1,1,1,1,15,13    ,1,1};
 
 #endif
 
