@@ -5435,12 +5435,12 @@ CONFIG_ESOC_MDM_DBG_ENG=y
 #
 # Halls
 #
-CONFIG_HALLS=y
+# CONFIG_HALLS is not set
 
 #
 # Trusty
 #
-CONFIG_TRUSTY=y
+# CONFIG_TRUSTY is not set
 # CONFIG_TRUSTY_VIRQ_SIMULATION is not set
 
 #
