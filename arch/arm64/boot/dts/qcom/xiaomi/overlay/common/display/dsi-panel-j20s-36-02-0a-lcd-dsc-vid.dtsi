@@ -52,6 +52,7 @@
 		qcom,mdss-dsi-panel-peak-brightness = <4200000>;
 		qcom,mdss-dsi-panel-blackness-level = <3230>;
 		qcom,cphy-esd-check;
+		qcom,sync-pen-fps;
 		/* qcom,mdss-dsi-qsync-min-refresh-rate = <60>; */
 		qcom,mdss-dsi-pan-enable-dynamic-fps;
 		qcom,mdss-dsi-pan-fps-update =
@@ -219,6 +220,17 @@
 				qcom,mdss-dsi-dispparam-cabcmovieon-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-dispparam-cabcoff-command = [15 01 00 00 00 00 02 ff 10 15 01 00 00 00 00 02 55 00];
 				qcom,mdss-dsi-dispparam-cabcoff-command-state = "dsi_hs_mode";
+				/* FPS */
+				qcom,mdss-dsi-sync-pen-120hz-command = [
+						15 00 00 00 00 00 02 FF 2A
+						15 00 00 00 00 00 02 23 0D
+						15 01 00 00 00 00 02 FF 10];
+				qcom,mdss-dsi-sync-pen-60hz-command = [
+						15 00 00 00 00 00 02 FF 2A
+						15 00 00 00 00 00 02 23 0C
+						15 01 00 00 00 00 02 FF 10];
+				qcom,mdss-dsi-sync-pen-120hz-command-state = "dsi_lp_mode";
+				qcom,mdss-dsi-sync-pen-60hz-command-state = "dsi_lp_mode";
 				/* HBM */
 				qcom,mdss-dsi-dispparam-lcd-hbm-l1-on-command = [15 00 00 00 00 00 02 ff 10 39 01 00 00 00 00 03 51 0e a0];
 				qcom,mdss-dsi-dispparam-lcd-hbm-l1-on-command-state = "dsi_lp_mode";
