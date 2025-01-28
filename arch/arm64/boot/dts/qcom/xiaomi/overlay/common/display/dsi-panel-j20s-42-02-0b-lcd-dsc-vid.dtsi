@@ -51,6 +51,7 @@
 			17000 15500 30000 8000 3000>;
 		qcom,mdss-dsi-panel-peak-brightness = <4200000>;
 		qcom,mdss-dsi-panel-blackness-level = <3230>;
+		qcom,cphy-esd-check;
 		/* qcom,mdss-dsi-qsync-min-refresh-rate = <60>; */
 		qcom,mdss-dsi-pan-enable-dynamic-fps;
 		qcom,mdss-dsi-pan-fps-update =
@@ -181,6 +182,15 @@
 						05 01 00 00 46 00 02 10 00];
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-post-off-command-state = "dsi_hs_mode";
+				/* ESD */
+				qcom,mdss-dsi-esd-check-read-command = [
+						/* esd detect */
+						15 01 00 00 00 00 02 FF 27
+						15 01 00 00 00 00 02 D1 28
+						15 01 00 00 00 00 02 FF 10
+						15 01 00 00 00 00 02 53 2C
+				];
+				qcom,mdss-dsi-esd-check-read-command-state = "dsi_lp_mode";
 				/* CABC */
 				qcom,mdss-dsi-dispparam-cabcuion-command = [15 01 00 00 00 00 02 ff 10 15 01 00 00 00 00 02 55 01];
 				qcom,mdss-dsi-dispparam-cabcuion-command-state = "dsi_hs_mode";
