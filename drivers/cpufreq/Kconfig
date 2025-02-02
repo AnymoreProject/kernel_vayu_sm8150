@@ -121,6 +121,16 @@ config CPU_FREQ_DEFAULT_GOV_INTERACTIVE
 	  loading your cpufreq low-level hardware driver, using the
 	  'interactive' governor for latency-sensitive workloads.
 
+config CPU_FREQ_DEFAULT_GOV_SCHEDHORIZON
+	bool "schedhorizon"
+	depends on SMP
+	select CPU_FREQ_GOV_SCHEDHORIZON
+	select CPU_FREQ_GOV_PERFORMANCE
+	help
+	  Use the 'schedhorizon' CPUFreq governor by default. If unsure,
+	  have a look at the help section of that governor. The fallback
+	  governor will be 'performance'.
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -247,6 +257,25 @@ config CPU_FREQ_GOV_INTERACTIVE
 	  module will be called cpufreq_interactive.
 
 	  For details, take a look at linux/Documentation/cpu-freq.
+
+	  If in doubt, say N.
+
+config CPU_FREQ_GOV_SCHEDHORIZON
+	bool "'schedhorizon' cpufreq policy governor"
+	depends on CPU_FREQ && SMP
+	select CPU_FREQ_GOV_ATTR_SET
+	select IRQ_WORK
+	help
+	  This is a modified version of schedutil, introducing two new tunables: 
+          "efficient_freq" and "up_delay".
+          Only raise cpufreq to the non-efficient one (higher than effcient frequencies) 
+          if the governor keeps requiring non-efficient frequencies for more than up_delay time.
+          Override the new frequencies with the efficient one if the consecutive request time 
+          doesn't reach up_delay.
+          The two tunables support multiple args, e.g. you can set "2092800 2400000" for 
+          "efficient_freq" and set "50 60" for "up_delay", which means it would wait 50ms 
+          before raising the frequency to 2092mhz and wait for 60ms before raising the frequency 
+          to 2400mhz.
 
 	  If in doubt, say N.
 
